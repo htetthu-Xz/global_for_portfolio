@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #172235;
+  background: #f7f8fa;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+}
+
+::selection { background: #a51f2b; color: white; }
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+@layer components {
+  .nav-link {
+    @apply relative text-[13px] font-semibold uppercase tracking-[0.12em] text-slate-500 transition hover:text-[#a51f2b];
+  }
+
+  .mobile-nav-link {
+    @apply border-b border-slate-100 px-2 py-3 text-sm font-semibold text-slate-700;
+  }
+
+  .button-primary {
+    @apply inline-flex items-center justify-center bg-[#a51f2b] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#871923] focus:outline-none focus:ring-2 focus:ring-[#a51f2b] focus:ring-offset-2;
+  }
+
+  .site-header {
+    @apply relative z-20 border-b border-slate-200/80 bg-[#f4f4f0]/90 backdrop-blur-xl;
+  }
+
+  .brand-mark { @apply flex items-center gap-3; }
+  .brand-symbol { @apply grid h-10 w-10 place-items-center bg-[#172235] text-sm font-bold text-white; }
+  .brand-copy { @apply flex flex-col text-[11px] font-bold leading-tight tracking-[0.2em] text-[#172235]; }
+  .brand-copy small { @apply mt-1 text-[8px] font-medium tracking-[0.26em] text-slate-500; }
+  .header-cta { @apply border-b border-[#a51f2b] pb-1 text-[13px] font-bold uppercase tracking-[0.1em] text-[#172235] transition hover:text-[#a51f2b]; }
+  .header-cta span { @apply ml-2 text-[#a51f2b]; }
+  .menu-lines { @apply flex w-5 flex-col gap-1; }
+  .menu-lines i { @apply block h-px w-full bg-slate-700; }
+
+  .button-secondary {
+    @apply inline-flex items-center justify-center border border-white/50 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-[#172235] focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#172235];
+  }
+
+  .eyebrow {
+    @apply text-xs font-bold uppercase tracking-[0.2em] text-[#a51f2b];
+  }
+
+  .section-title {
+    @apply mt-4 max-w-2xl text-3xl font-semibold leading-tight tracking-tight text-slate-900 sm:text-4xl;
+  }
+
+  .feature-card {
+    @apply bg-white p-7 shadow-sm ring-1 ring-slate-200/80;
+  }
+
+  .feature-card h2,
+  .feature-card h3 {
+    @apply mt-3 text-xl font-semibold text-slate-900;
+  }
+
+  .feature-card p:not(.card-number) {
+    @apply mt-4 text-sm leading-7 text-slate-600;
+  }
+
+  .card-number {
+    @apply text-xs font-bold tracking-[0.2em] text-[#a51f2b];
+  }
+
+  .japanese-panel {
+    @apply border-l-4 border-[#a51f2b] bg-[#f0f2f5] p-7 text-slate-700;
+  }
+
+  .footer-link,
+  .contact-link {
+    @apply text-slate-300 transition hover:text-white;
+  }
+
+  .contact-link {
+    @apply block mt-3 text-lg text-slate-900 hover:text-[#a51f2b];
+  }
+
+  .hero-modern { @apply overflow-hidden bg-[#e7e7e1]; }
+  .hero-grid { @apply mx-auto grid max-w-[1440px] gap-12 px-5 pb-10 pt-16 lg:grid-cols-[0.92fr_1.08fr] lg:gap-16 lg:px-10 lg:pb-16 lg:pt-24; }
+  .hero-copy { @apply flex flex-col justify-center; }
+  .hero-kicker { @apply flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500; }
+  .hero-kicker span { @apply h-2 w-2 bg-[#a51f2b]; }
+  .hero-copy h1 { @apply mt-8 text-[4.2rem] font-semibold leading-[0.9] tracking-[-0.07em] text-[#172235] sm:text-[6.8rem] lg:text-[7.4rem]; }
+  .hero-copy h1 em { @apply font-serif font-normal text-[#a51f2b]; }
+  .hero-lead { @apply mt-8 max-w-md text-base leading-7 text-slate-600; }
+  .hero-action { @apply inline-flex items-center gap-8 border-b-2 border-[#a51f2b] pb-3 text-sm font-bold uppercase tracking-[0.12em] text-[#172235] transition hover:gap-10; }
+  .hero-action span { @apply text-xl text-[#a51f2b]; }
+  .hero-note { @apply text-[10px] font-bold uppercase tracking-[0.16em] text-slate-400; }
+  .hero-visual { @apply relative min-h-[420px] lg:min-h-[600px]; }
+  .hero-image-wrap { @apply absolute inset-x-5 bottom-0 top-0 overflow-hidden lg:inset-x-10; }
+  .hero-image-wrap img { @apply h-full w-full object-cover grayscale-[20%] transition duration-700 hover:scale-105; }
+  .hero-stamp { @apply absolute bottom-8 left-0 flex h-32 w-32 flex-col justify-center bg-[#a51f2b] px-5 text-white lg:bottom-14 lg:h-40 lg:w-40; }
+  .hero-stamp span { @apply text-[9px] font-bold tracking-[0.25em]; }
+  .hero-stamp strong { @apply mt-1 text-4xl font-semibold leading-none tracking-[-0.08em]; }
+  .hero-stamp small { @apply mt-2 text-[8px] tracking-[0.18em]; }
+  .hero-vertical { @apply absolute right-0 top-10 [writing-mode:vertical-rl] text-[10px] font-bold tracking-[0.2em] text-slate-500; }
+  .hero-bottom { @apply mx-auto flex max-w-[1440px] justify-between border-t border-slate-300 px-5 py-5 text-[10px] font-bold uppercase tracking-[0.15em] text-slate-500 lg:px-10; }
+  .hero-scroll { @apply text-[#a51f2b]; }
+  .hero-scroll b { @apply ml-3 text-base; }
+  .modern-section { @apply mx-auto max-w-[1440px] px-5 py-24 lg:px-10 lg:py-32; }
+  .section-title { @apply mt-4 max-w-2xl text-4xl font-semibold leading-[1.05] tracking-[-0.05em] text-[#172235] sm:text-5xl; }
+  .section-title span { @apply font-serif font-normal text-[#a51f2b]; }
+  .modern-service-grid { @apply grid gap-4 sm:grid-cols-2; }
+  .modern-service-card { @apply flex min-h-72 flex-col justify-between bg-[#d8dbd6] p-7 transition duration-300 hover:-translate-y-2 hover:shadow-xl; }
+  .modern-service-card.dark { @apply bg-[#172235] text-white; }
+  .modern-service-card > span { @apply text-xs font-bold tracking-[0.2em] text-[#a51f2b]; }
+  .modern-service-card h3 { @apply mt-10 text-2xl font-semibold leading-tight tracking-[-0.04em]; }
+  .modern-service-card p { @apply mt-4 text-sm leading-7 text-slate-600; }
+  .modern-service-card.dark p { @apply text-slate-300; }
+  .modern-service-card a { @apply mt-8 inline-flex gap-3 text-xs font-bold uppercase tracking-[0.15em] text-[#a51f2b]; }
+  .modern-service-card a b { @apply text-base; }
+  .manifesto-section { @apply bg-[#172235] text-white; }
+  .manifesto-title { @apply mt-5 max-w-xl text-4xl font-semibold leading-[1.02] tracking-[-0.05em] sm:text-6xl; }
+  .manifesto-title em { @apply font-serif font-normal text-[#e68b87]; }
+  .site-footer { @apply bg-[#101a2a] text-slate-200; }
+}
